@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class Listing extends Model {}
 
-Project.init(
+Listing.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,20 +11,45 @@ Project.init(
       primaryKey: true,
       autoIncrement: true,
     },
+   
+    photo_url: {
+      type: DataTypes.VARCHAR(max),
+      allowNull: false,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    details: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
-    date_created: {
+    milage: {
+      type: DataTypes.INTEGER,
+      allowNull:false,
+    },
+    condition: {
+      type: DataTypes.STRING,
+      allowNull:false,
+    },
+    make: {
+      type: DataTypes.STRING,
+      allowNull:false,
+    },
+
+    startListing_date: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    needed_funding: {
-      type: DataTypes.FLOAT,
+    endListing_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+
+    startBid_amount: {
+      type: DataTypes.DECIMAL(15,2),
       allowNull: false,
     },
     user_id: {
@@ -34,14 +59,17 @@ Project.init(
         key: 'id',
       },
     },
-  },
+
+     },
+  
+
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'Listing',
   }
 );
 
-module.exports = Project;
+module.exports = Listing;
