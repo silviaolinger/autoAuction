@@ -13,7 +13,7 @@ Listing.init(
     },
    
     photo_url: {
-      type: DataTypes.VARCHAR(max),
+      type: DataTypes.STRING,
       allowNull: false,
     },
     name: {
@@ -55,7 +55,7 @@ Listing.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
+        model: 'User',
         key: 'id',
       },
     },
