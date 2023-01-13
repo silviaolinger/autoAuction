@@ -6,16 +6,11 @@
     "milage": 50000,
     "condition": "PRE-OWEND",
     "make":"Toyota",
-    "startListing_date":
-  },
-  {
-    "name": "The Ultimate Tech Quiz",
-    "descripti": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
-    "needed_funding": 10000
-  },
-  {
-    "name": "Roll 'Em Up",
-    "description": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
-    "needed_funding": 800
+    "start_listing_date": "2020-12-10",
+    "end_listing_date": "2020-12-10" ,
+    "start_bid_amount": 5000.00,
+    "user_id":1
+
   }
+  
 ]
