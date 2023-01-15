@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Listing extends Model {}
+class Listing extends Model { }
 
 Listing.init(
   {
@@ -11,10 +11,10 @@ Listing.init(
       primaryKey: true,
       autoIncrement: true,
     },
-   
-    photo_url: {
+
+    photoUrl: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     name: {
       type: DataTypes.STRING,
@@ -26,42 +26,41 @@ Listing.init(
     },
     milage: {
       type: DataTypes.INTEGER,
-      allowNull:false,
+      allowNull: false,
     },
     condition: {
       type: DataTypes.STRING,
-      allowNull:false,
+      allowNull: false,
     },
     make: {
       type: DataTypes.STRING,
-      allowNull:false,
+      allowNull: false,
     },
 
-    startListing_date: {
+    startListingDate: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    endListing_date: {
+    endListingDate: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
 
-    startBid_amount: {
-      type: DataTypes.DECIMAL(15,2),
-      allowNull: false,
+    startBidAmount: {
+      type: DataTypes.DECIMAL(15, 2),
+      allowNull: true,
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'User',
         key: 'id',
       },
     },
+  },
 
-     },
-  
 
   {
     sequelize,

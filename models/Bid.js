@@ -18,13 +18,13 @@ Bid.init(
       type: DataTypes.DECIMAL(15,2),
       allowNull: false,
     },
-    created_date: {
+    createdDate: {
         type: DataTypes.DATE,
         allowNull: false,
         defaultValue: DataTypes.NOW,
       },
   
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'User',
@@ -32,7 +32,7 @@ Bid.init(
       },
     },
 
-    listing_id: {
+    listingId: {
         type: DataTypes.INTEGER,
         references: {
           model: 'Listing',

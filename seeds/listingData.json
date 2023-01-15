@@ -1,0 +1,16 @@
+[
+  {
+    "photo_url": "Music Near Me",
+    "name": "Toyota GR Supra",
+    "details": "Fuel Economy: 27.0/34.0 mpg City/Hwy Transmission: Continuously Variable Automatic ",
+    "milage": 50000,
+    "condition": "PRE-OWEND",
+    "make":"Toyota",
+    "start_listing_date": "2020-12-10",
+    "end_listing_date": "2020-12-10" ,
+    "start_bid_amount": 5000.00,
+    "user_id":1
+
+  }
+  
+]
