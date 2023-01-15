@@ -14,7 +14,7 @@ Listing.init(
 
     photoUrl: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     name: {
       type: DataTypes.STRING,
