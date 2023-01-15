@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Bid extends Model {}
+class Bid extends Model { }
 
 Bid.init(
   {
@@ -12,35 +12,37 @@ Bid.init(
       autoIncrement: true,
     },
 
-    
-   
+
+
     amount: {
-      type: DataTypes.DECIMAL(15,2),
+      type: DataTypes.DECIMAL(15, 2),
       allowNull: false,
     },
     createdDate: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-      },
-  
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+
     userId: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'User',
         key: 'id',
+
       },
     },
-
     listingId: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'Listing',
-          key: 'id',
-        },
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Listing',
+        key: 'id',
       },
-     },
-  
+    },
+  },
+
 
   {
     sequelize,
