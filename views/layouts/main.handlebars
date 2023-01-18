@@ -4,41 +4,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund My Project!</title>
+  <title>Auto Auction</title>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Fund My Project!</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
+  <header>
+    <h1>
+      Auto Auction
+    </h1>
+    
+    {{!-- side navigation --}}
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        {{#unless logged_in}}
+        <a href="/login">Login</a>
+        {{/unless}}
+        <!-- Only display the logout button if the user is logged in -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
+        <nav>
+          <a href="/profile">My Profile</a>
+          <a class="btn" id="logout">logout</a>
+        </nav>
         {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
+    </div>
+  </header>
+  <div>
+      <div class="row" id="action-bar">
+        <div class="col-8">
+            <span class="menu-button" onclick="openNav()"> &#9776; </span>
+        </div>
+        <div class="col-4">
+            <form class="search-form" action="submit">
+                <input class="search-box" type="text" placeholder="Search by make">
+                <input type="submit" value="Search" id="search-submit">
+            </form>
+        </div>
+    </div>
+  <main class="container container-fluid mt-5">
+    {{{ body }}}
+  </main>
+  <footer>
       
-    </footer>
-  </div>
+  </footer>
 
-  <!-- Render script for logged in users only -->
+  <!-- Only include the logout script if the user is logged in -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+  <script src="/js/sidenav.js"></script>
 </body>
 
 </html>
