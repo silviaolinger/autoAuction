@@ -2,39 +2,86 @@
   <div class="col-auto">
     <h2>Welcome, {{name}}!</h2>
   </div>
+  <div class="profile-section">
+    <h3>Your Information:</h3>
+    <p>Email: {{email}}</p>
+    <p>Phone: {{phone}}</p>
+    <p>Address: {{address}}</p>
+  </div>
 </div>
-
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Create a New Project:</h3>
+    <h3>Create a Listing:</h3>
 
-    <form class="form new-project-form">
+    <form class="form new-listing-form">
       <div class="form-group">
-        <label for="project-name">project name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
+        <label for="listing-name">Listing name:</label>
+        <input class="form-input" type="text" id="listing-name" name="listing-name" />
       </div>
       <div class="form-group">
-        <label for="project-funding">needed funding ($):</label>
+        <label for="listing-amount">Listing amount ($):</label>
         <input class="form-input" type="number" id="project-funding" name="project-funding" />
       </div>
       <div class="form-group">
-        <label for="project-desc">description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+        <label for="listing-desc">Description:</label>
+        <textarea class="form-input" id="listing-desc" name="listing-desc"></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">Create Listing</button>
       </div>
     </form>
   </div>
 
-  {{#if projects.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Your Bids:</h3>
+    {{#if bids.length}}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+            <th>Car</th>
+            <th>Bid Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each bids as |bid|}}
+            <tr>
+              <td>{{bid.car.make}} {{bid.car.model}}</td>
+              <td>${{bid.amount}}</td>
+              <td>{{format_date bid.date}}</td>
+              <td>{{bid.status}}</td>
+            </tr>
+          {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <p>You have not placed any bids yet.</p>
+    {{/if}}
+  </div>
+  <div class="col-md-6">
+    <h3>Your Winning Cars:</h3>
+    {{#if winningCars.length}}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Car</th>
+          <th>Winning Amount</th>
+          <th>Date</th>
+          <th>Winning Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each winningCars as |car|}}
+            <tr>
+              <td>{{car.make}} {{car.model}}</td>
+              <td>{{car.winning_amount}}</td>
+              <td>{{car.winning_date}}</td>
+              <td>${{car.winning_price}}</td>
+              <td>
 
-    {{#each projects as |project|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+        <h4><a href="/cars/{{project.id}}">{{project.name}}</a></h4>
       </div>
       <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
