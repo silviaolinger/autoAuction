@@ -1,16 +1,54 @@
 [
   {
-    "photo_url": "/assets/images/car.png",
     "name": "Toyota GR Supra",
     "details": "Fuel Economy: 27.0/34.0 mpg City/Hwy Transmission: Continuously Variable Automatic ",
     "milage": 50000,
     "condition": "PRE-OWEND",
     "make":"Toyota",
-    "start_listing_date": "2020-12-10",
-    "end_listing_date": "2020-12-10" ,
-    "start_bid_amount": 5000.00,
-    "user_id":1
+    "startListingDate": "2020-12-10",
+    "endListingDate": "2020-12-10" ,
+    "startBidAmount": 5000.00,
+    "photoUrl": "Music Near Me",
+    "userId":1
 
+  },
+  {
+    "name": "Mazda MX-5 Miata",
+    "details": "Fuel Economy: 27.0/34.0 mpg City/Hwy Transmission: Continuously Variable Automatic ",
+    "milage": 70000,
+    "condition": "PRE-OWEND",
+    "make":"Mazda",
+    "startListingDate": "2022-12-10",
+    "endListingDate": "2023-12-10" ,
+    "startBidAmount": 35000.00,
+    "photoUrl": "Mazdaphoto",
+    "userId":2
+  },
+  {
+    "name": "Subaru BRZ",
+    "details": "Fuel Economy: 27.0/34.0 mpg City/Hwy Transmission: Continuously Variable Automatic ",
+    "milage": 80000,
+    "condition": "PRE-OWEND",
+    "make":"Mazda",
+    "startListingDate": "2022-1-1",
+    "endListingDate": "2023-1-1" ,
+    "startBidAmount": 45000.00,
+    "photoUrl": "Subaruphoto",
+    "userId":3
+  },
+  {
+    "name": "Chevy Camaro",
+    "details": "Fuel Economy: 27.0/34.0 mpg City/Hwy Transmission: Continuously Variable Automatic ",
+    "milage": 80000,
+    "condition": "PRE-OWEND",
+    "make":"Mazda",
+    "startListingDate": "2022-1-1",
+    "endListingDate": "2023-1-1" ,
+    "startBidAmount": 45000.00,
+    "photoUrl": "Chevyphoto",
+    "userId":1
   }
+  
+
   
 ]

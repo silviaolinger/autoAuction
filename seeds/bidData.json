@@ -1,12 +1,32 @@
 [
     {
       "amount": "10000",
-      "created_date": "2023-12-1",
-      "user_id":1,
-      "listing_id":1
-     
-  
+      "createdDate": "2023-12-1",
+      "userId":1,
+      "listingId":1
+    },
+
+    {
+      "amount": "20000",
+      "createdDate": "2023-12-2",
+      "userId":2,
+      "listingId":2
+    },
+
+    {
+      "amount": "60000",
+      "createdDate": "2023-1-1",
+      "userId":3,
+      "listingId":3
+    },
+
+    {
+      "amount": "80000",
+      "createdDate": "2023-1-1",
+      "userId":1,
+      "listingId":4
     }
+
     
   ]
   
