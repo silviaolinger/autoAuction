@@ -15,7 +15,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/cars:id', withAuth, async (req, res) => {
   try {
     const ListingData = await Listing.destroy({
       where: {
