@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js\" node src",
     "seed": "node seeds/seed.js"
-
   },
   "keywords": [],
   "author": "",
@@ -19,7 +18,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
-    "mysql2": "^2.2.5",
+    "mysql2": "^2.3.3",
     "nodemailer": "^6.9.0",
     "sequelize": "^6.3.5"
   },
@@ -28,5 +27,4 @@
     "eslint-config-prettier": "^6.15.0",
     "prettier": "^2.1.2"
   }
-
 }
