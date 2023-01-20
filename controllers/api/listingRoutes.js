@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Listing } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newListing = await Listing.create({
       ...req.body,

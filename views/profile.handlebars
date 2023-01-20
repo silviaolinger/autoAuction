@@ -13,18 +13,38 @@
   <div class="col-md-6">
     <h3>Create a Listing:</h3>
 
-    <form class="form new-listing-form">
+    <form class="form new-car-form">
       <div class="form-group">
-        <label for="listing-name">Listing name:</label>
-        <input class="form-input" type="text" id="listing-name" name="listing-name" />
+        <label for="car-name">Car name:</label>
+        <input class="form-input" type="text" id="car-name" name="car-name" />
       </div>
       <div class="form-group">
-        <label for="listing-amount">Listing amount ($):</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
+        <label for="car-name">Make:</label>
+        <input class="form-input" type="text" id="car-make" name="car-make" />
       </div>
       <div class="form-group">
-        <label for="listing-desc">Description:</label>
-        <textarea class="form-input" id="listing-desc" name="listing-desc"></textarea>
+        <label for="car-name">Year:</label>
+        <input class="form-input" type="number" id="car-year" name="car-year" />
+      </div>
+      <div class="form-group">
+        <label for="car-starting-price">Starting Price ($):</label>
+        <input class="form-input" type="number" id="car-starting-price" name="car-starting-price" />
+      </div>
+      <div class="form-group">
+        <label for="car-mileage">Mileage:</label>
+        <input class="form-input" type="number" id="car-mileage" name="car-mileage" />
+      </div>
+      <div class="form-group">
+        <label for="car-condition">Condition:</label>
+        <input class="form-input" id="car-condition" name="car-condition" />
+      </div>
+      <div class="form-group">
+        <label for="car-details">Description:</label>
+        <textarea class="form-input" id="car-details" name="car-details"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="car-auction-end-date">Auction End Date (enter yyyy/mm/dd):</label>
+        <input class="form-input" id="car-auction-end-date" name="car-auction-end-date" />
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create Listing</button>
