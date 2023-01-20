@@ -14,7 +14,7 @@ Listing.init(
 
     photoUrl: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     name: {
       type: DataTypes.STRING,
@@ -24,7 +24,7 @@ Listing.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    milage: {
+    mileage: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
@@ -36,7 +36,10 @@ Listing.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
+    year: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     startListingDate: {
       type: DataTypes.DATE,
       allowNull: false,

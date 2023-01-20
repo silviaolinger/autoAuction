@@ -3,15 +3,17 @@ const newFormHandler = async (event) => {
 
   const name = document.querySelector('#car-name').value.trim();
   const make = document.querySelector('#car-make').value.trim();
-  const model = document.querySelector('#car-model').value.trim();
+  const details = document.querySelector('#car-details').value.trim();
   const year = document.querySelector('#car-year').value.trim();
-  const starting_price = document.querySelector('#car-starting-price').value.trim();
-  const auction_end_date = document.querySelector('#car-auction-end-date').value.trim();
+  const mileage = document.querySelector('#car-mileage').value.trim();
+  const condition = document.querySelector('#car-condition').value.trim();
+  const startBidAmount = document.querySelector('#car-starting-price').value.trim();
+  const endListingDate = document.querySelector('#car-auction-end-date').value.trim();
 
-  if (name && make && model && year && starting_price && auction_end_date) {
-    const response = await fetch(`/api/cars`, {
+  if (name && make && details && year && mileage && condition && startBidAmount && endListingDate) {
+    const response = await fetch(`/api/listings`, {
       method: 'POST',
-      body: JSON.stringify({ name, make, model, year, starting_price, auction_end_date }),
+      body: JSON.stringify({ name, details, mileage, condition, make, year, startBidAmount, endListingDate }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -68,10 +70,10 @@ document
   .querySelector('.new-car-form')
   .addEventListener('submit', newFormHandler);
 
-document
-  .querySelector('.new-bid-form')
-  .addEventListener('click', delButtonHandler);
+// document
+//   .querySelector('.new-bid-form')
+//   .addEventListener('click', delButtonHandler);
 
-document
-  .querySelector('.car-list')
-  .addEventListener('click', delButtonHandler);
+// document
+//   .querySelector('.car-list')
+//   .addEventListener('click', delButtonHandler);
