@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Listing } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+
 router.post('/', withAuth, async (req, res) => {
   try {
     const newListing = await Listing.create({
@@ -35,4 +36,24 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
+      router.get('/:make', async (req, res) => {
+        const make = req.params.make;
+                try {
+                    const result = await Listing.findAll({
+                      where:{ make: make
+                    }
+
+                  });
+                
+                  if(!result) 
+                  {
+                    res.json("There is no Listing with this make")
+                  }
+                  res.json(result);
+                  
+                } catch (error) {
+                  res.status(404).json({ message: 'No Listing found with this make',error });
+                }
+              })
+              
 module.exports = router;
