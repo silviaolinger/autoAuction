@@ -32,5 +32,13 @@ module.exports = {
     price.sort(function(a, b){return b-a});
     console.log(price);
     return price[0]
+  },
+
+  first_photo: (photoUrl) => {
+    console.log(photoUrl)
+    let single = `${photoUrl}`.split(',');
+    console.log(single)
+    return single[0]
   }
 };
+

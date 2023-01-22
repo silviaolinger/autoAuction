@@ -13,8 +13,9 @@ Listing.init(
     },
 
     photoUrl: {
-      type: DataTypes.STRING,
-      allowNull: true,
+      type: DataTypes.JSON,
+      allowNull: false,
+      defaultValue: ["/assets/images/car.png"]
     },
     name: {
       type: DataTypes.STRING,

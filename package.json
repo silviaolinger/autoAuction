@@ -20,7 +20,8 @@
     "express-session": "^1.17.1",
     "mysql2": "^2.3.3",
     "nodemailer": "^6.9.0",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "uploader": "^3.3.0"
   },
   "devDependencies": {
     "eslint": "^7.12.1",
