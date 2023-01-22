@@ -1,11 +1,33 @@
 <div class="text-center">
-  <h2>{{car.make}} {{car.model}}</h2>
-  <p>Year: {{car.year}}</p>
-  <p>Price{{car.price}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
-  <p>
-    <button class="btn btn-primary">Place your bid!</button>
-  </p>
+  <h2>{{name}} {{make}}</h2>
+  <p>Year: {{year}}</p>
+  <p>Mileage: {{mileage}}</p>
+  <p>Condition: {{condition}}</p>
+  
+  <div>
+    <p>Price <span for="img" aria-label="money">💲</span><p id="price">{{current_price startBidAmount Bids}}</p></p>
+   
+  </div>
+  
+  <form class="form new-bid-form">
+    <div class="form-group">
+      <label for="new-bid">Amount:</label>
+      <input class="form-input" type="number" id="new-bid" />
+    </div>
+    <br></br>
+    <button class="btn btn-primary" type="submit">Place your bid!</button>
+  </form>
+  <br>
+  {{details}}
+  <p>Created by {{User.name}} on {{format_date startListingDate}}</p>
+   <br>
+  <button type="button" class="collapsible">
+    <h3>Previous offers</h3>
+  </button>
+  <div class="content">
+    {{#each Bids}}
+    <p>{{User.name}} ${{format_amount amount}} {{createdDate}}</p>
+    {{/each}}
+  </div>
 </div>
+<script src="/js/listing.js"></script>

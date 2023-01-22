@@ -145,6 +145,18 @@ body {
       text-align: center;
       padding-top: 10px;
     }
-  
+    .active, .collapsible:hover {
+      background-color: #555;
+    
+    }
+    
+    .content {
+      display: none;
+      overflow: hidden;
+      width: 80%;
+      margin: 40px auto;
+      border: 5px solid gray;
+      box-shadow: 5px 10px #888888;
+    }
    
    
