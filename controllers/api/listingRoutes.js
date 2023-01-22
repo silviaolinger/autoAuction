@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { Listing } = require('../../models');
+const { Listing, User, Bid } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth,async (req, res) => {
   try {
     const newListing = await Listing.create({
       ...req.body,
@@ -12,6 +12,38 @@ router.post('/', async (req, res) => {
     res.status(200).json(newListing);
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+router.get('/:id', withAuth, async (req, res) => {
+  try {
+    const listingData = await Listing.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+        {
+          model: Bid,
+          attributes: ['amount', 'createdDate'],
+          include: [
+            {
+              model: User,
+              attributes: ['name']
+            }
+          ]
+        },
+      ],
+    });
+
+    const listing = listingData.get({ plain: true });
+    console.log("testing", listing)
+    res.render('listing', {
+      ...listing,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

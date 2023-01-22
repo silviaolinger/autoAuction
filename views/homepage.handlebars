@@ -1,6 +1,6 @@
 {{#each listings }}
 <div class="col-md-3">
-            <a href="#">
+            <a href="/api/listings/{{id}}">
                 <h3>
                     {{name}}
                 </h3>
@@ -12,7 +12,7 @@
                     2 days remaining
                 </p>
                 <p class="price">
-                    $80000
+                    ${{current_price startBidAmount Bids}}
                 </p>
             </a>
         </div>

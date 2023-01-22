@@ -6,7 +6,12 @@ router.get('/', async (req, res) => {
   try {
     // Get all listings 
     const listingData = await Listing.findAll({
-     
+     include: [
+        {
+          model: Bid,
+          attributes: ['amount']
+      }
+     ]
     });
 
     // Serialize data so the template can read it
@@ -22,27 +27,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/listing/:id', async (req, res) => {
-  try {
-    const listingData = await Project.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-
-    const listing = listingData.get({ plain: true });
-
-    res.render('listing', {
-      ...listing,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {

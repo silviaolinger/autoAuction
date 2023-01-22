@@ -19,4 +19,18 @@ module.exports = {
       return `<span for="img" aria-label="gear">⚙️</span>`;
     }
   },
+  // Retrieve all bids and starting amount and sort to return highest value
+  current_price: (startBidAmount, Bids) => {
+    let price = []
+    console.log( "hello", Bids);
+    Bids.forEach( bids => {
+      price.push(parseInt(bids.amount))
+    });
+    console.log(price);
+    price.push(parseInt(startBidAmount))
+    console.log(price);
+    price.sort(function(a, b){return b-a});
+    console.log(price);
+    return price[0]
+  }
 };

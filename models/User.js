@@ -30,8 +30,7 @@ User.init(
     },
     address: {
       type: DataTypes.STRING,
-      allowNull: false,
-      primaryKey: true,
+      allowNull: true,
       trim: true,
     },  
     password: {
