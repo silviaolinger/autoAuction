@@ -9,7 +9,7 @@
     "startListingDate": "2020-12-10",
     "endListingDate": "2020-12-10" ,
     "startBidAmount": 5000.00,
-    "photoUrl": "Music Near Me",
+    "photoUrl": ["Music Near Me"],
     "userId":1
 
   },
@@ -23,7 +23,7 @@
     "startListingDate": "2022-12-10",
     "endListingDate": "2023-12-10" ,
     "startBidAmount": 35000.00,
-    "photoUrl": "Mazdaphoto",
+    "photoUrl": ["Mazdaphoto"],
     "userId":2
   },
   {
@@ -36,7 +36,7 @@
     "startListingDate": "2022-1-1",
     "endListingDate": "2023-1-1" ,
     "startBidAmount": 45000.00,
-    "photoUrl": "Subaruphoto",
+    "photoUrl": ["Subaruphoto"],
     "userId":3
   },
   {
@@ -49,7 +49,7 @@
     "startListingDate": "2022-1-1",
     "endListingDate": "2023-1-1" ,
     "startBidAmount": 45000.00,
-    "photoUrl": "Chevyphoto",
+    "photoUrl": ["Chevyphoto"],
     "userId":1
   }
   
