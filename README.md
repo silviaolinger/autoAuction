@@ -16,6 +16,9 @@ This was a collaboration between the following developers:
 - [Korey Collazo](https://github.com/koreycollazo)
 - [Silvia Olinger](https://github.com/silviaolinger)
 
+## Credit
+Function to convert milliseconds to d/h/m/s is from [flangofas](https://github.com/flangofas)
+
 ## Question and Collaboration
 If you have questions or suggestions, please contact any of the above contributors.
 
