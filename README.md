@@ -1,4 +1,5 @@
 # AutoAuction - Enjoy a Nice Ride!
+Welcome to the Car Auction App! This app allows users to place bids on cars and track their bid status.
 ![autoAuction](https://user-images.githubusercontent.com/113262558/211442444-a9442826-f6fb-41f1-99fd-52f455a80032.png)
 
 ## Description
@@ -19,6 +20,6 @@ This was a collaboration between the following developers:
 ## Question and Collaboration
 If you have questions or suggestions, please contact any of the above contributors.
 
-If you would like to contribute to this project, please fork the repository and then create a pull for your changes.
+If you would like to contribute to this project, please fork the repository and create a pull request with your changes.
 
 ## Screenshots
