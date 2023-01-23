@@ -85,35 +85,34 @@
     {{/if}}
   </div>
   <div class="col-md-6">
-    <h3>Your Winning Cars:</h3>
-    {{#if winningCars.length}}
+    <h3>Your Listings:</h3>
+    {{#if Listings}}
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Car</th>
-          <th>Winning Amount</th>
-          <th>Date</th>
-          <th>Winning Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each winningCars as |car|}}
+            <th>Car</th>
+            <th>Bid Amount</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody id="user-listings">
+        {{#each Listings}}
             <tr>
-              <td>{{car.make}} {{car.model}}</td>
-              <td>{{car.winning_amount}}</td>
-              <td>{{car.winning_date}}</td>
-              <td>${{car.winning_price}}</td>
-              <td>
-
-        <h4><a href="/cars/{{listing.id}}">{{listing.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{listing.id}}">DELETE</button>
-      </div>
-    </div>
-    {{/each}}
+              <td>{{make}} {{name}}</td>
+              <td>${{current_price startBidAmount Bids}}</td>
+              <td>{{format_date endListingDate}}</td>
+              <td>{{open_closed endListingDate }}</td>
+              <td><button class="btn btn-sm btn-danger" data-id="{{id}}">DELETE</button></td>
+            </tr>
+          {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <p>You have not made any Listings yet.</p>
+    {{/if}}
   </div>
-  {{/if}}
 </div>
 
 

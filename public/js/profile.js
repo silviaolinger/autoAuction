@@ -94,8 +94,8 @@ const bidFormHandler = async (event) => {
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
-
-    const response = await fetch(`/api/listing/${id}`, {
+    console.log(id)
+    const response = await fetch(`/api/listings/${id}`, {
       method: 'DELETE',
     });
 
@@ -115,9 +115,9 @@ document
   .querySelector('.image-upload')
   .addEventListener('click', uploadFiles);
 
-// document
-//   .querySelector('.new-bid-form')
-//   .addEventListener('click', delButtonHandler);
+document
+  .querySelector('#user-listings')
+  .addEventListener('click', delButtonHandler);
 
 // document
 //   .querySelector('.car-list')
