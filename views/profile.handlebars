@@ -10,7 +10,7 @@
   </div>
 </div>
 <div class="row mt-4">
-  <div class="col-md-6">
+  <div class="col-md-4">
     <h3>Create a Listing:</h3>
     
     <div class="container" id="btn-container">
@@ -56,12 +56,10 @@
     </form>
   </div>
 <div>
-       
-      </div>
 <div class="row mt-4">
   <div class="col-md-6">
     <h3>Your Bids:</h3>
-    {{#if bids.length}}
+    {{#if Bids}}
     <table class="table table-striped">
       <thead>
         <tr>
@@ -72,12 +70,12 @@
         </tr>
       </thead>
       <tbody>
-        {{#each bids as |bid|}}
+        {{#each Bids}}
             <tr>
-              <td>{{bid.car.make}} {{bid.car.model}}</td>
-              <td>${{bid.amount}}</td>
-              <td>{{format_date bid.date}}</td>
-              <td>{{bid.status}}</td>
+              <td>{{Listing.make}} {{Listing.name}}</td>
+              <td>${{format_amount amount}}</td>
+              <td>{{format_date createdDate}}</td>
+              <td>{{open_closed Listing.endListingDate }}</td>
             </tr>
           {{/each}}
       </tbody>
