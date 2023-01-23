@@ -68,12 +68,18 @@ router.delete('/cars:id', withAuth, async (req, res) => {
   }
 });
 
-router.get('/:make', async (req, res) => {
+router.get('/search/:make', async (req, res) => {
   const make = req.params.make;
           try {
               const result = await Listing.findAll({
                 where:{ make: make
+              }, 
+                include: [
+                {
+                  model: Bid,
+                  attributes: ['amount']
               }
+             ]
 
             });
           
@@ -81,8 +87,14 @@ router.get('/:make', async (req, res) => {
             {
               res.json("There is no Listing with this make")
             }
-            res.json(result);
             
+            // Serialize data so the template can read it
+            const listings = result.map((listing) => listing.get({ plain: true }));
+            // Pass serialized data and session flag into template
+            res.render('search', { 
+              listings, 
+              logged_in: req.session.logged_in 
+            });
           } catch (error) {
             res.status(404).json({ message: 'No Listing found with this make',error });
           }
