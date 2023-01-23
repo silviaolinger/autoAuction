@@ -34,7 +34,23 @@ module.exports = {
     let currentDate = new Date();
     let remaining = endDate.getTime() - currentDate.getTime()
     return convertMiliseconds(remaining)
+  },
+
+  open_closed: (endListingDate) => {
+  let int = miliseconds(endListingDate);
+  if (int < 0){
+    return 'Closed';
+  } else {
+    return 'Open';
   }
+}
+};
+
+function miliseconds(endListingDate) {
+  let endDate = endListingDate
+  let currentDate = new Date();
+  let remaining = endDate.getTime() - currentDate.getTime()
+  return remaining;
 };
 
 function convertMiliseconds(miliseconds, format) {
