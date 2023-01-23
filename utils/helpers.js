@@ -19,7 +19,7 @@ module.exports = {
     console.log(price);
     price.sort(function(a, b){return b-a});
     console.log(price);
-    return price[0]
+    return parseInt(price[0]).toLocaleString();
   },
 
   first_photo: (photoUrl) => {
