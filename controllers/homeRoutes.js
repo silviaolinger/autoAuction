@@ -40,12 +40,23 @@ router.get('/profile', withAuth, async (req, res) => {
             model: Listing,
             attributes: ['name', 'make', 'endListingDate']
           }
-        ]}],
+        ]},
+        { model: Listing,
+          attributes: ['name', 'make', 'startBidAmount','endListingDate', 'id'],
+          include: [
+            {
+              model: Bid,
+              attributes: ['amount']
+            }
+        ]}
+      ],
       
     });
+    
 
     const user = userData.get({ plain: true });
-    console.log(userData)
+    
+   console.log(userData)
     res.render('profile', {
       ...user,
       logged_in: true
