@@ -69,14 +69,16 @@
             <th>Status</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="user-bids">
         {{#each Bids}}
             <tr>
               <td>{{Listing.make}} {{Listing.name}}</td>
               <td>${{format_amount amount}}</td>
               <td>{{format_date createdDate}}</td>
               <td>{{open_closed Listing.endListingDate }}</td>
+              <td><button class="btn btn-sm btn-danger" data-id="{{id}}">DELETE</button></td>
             </tr>
+            <script src="./js/delBid.js"></script>
           {{/each}}
       </tbody>
     </table>
@@ -109,6 +111,7 @@
           {{/each}}
       </tbody>
     </table>
+    <script src="./js/delListing.js"></script>
     {{else}}
     <p>You have not made any Listings yet.</p>
     {{/if}}
