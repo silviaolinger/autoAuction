@@ -1253,14 +1253,11 @@ form [type='radio'] {
   flex-wrap: wrap;
   flex-direction: row;
   margin-left: -15px;
-  margin-right: -15px;
 }
 
 [class*='col-'] {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
 }
 
 .col-auto {
@@ -1439,7 +1436,7 @@ form [type='radio'] {
   }
   .col-md-3 {
     flex: 0 0 25%;
-    max-width: 25%;
+    max-width: 75%;
   }
   .col-md-4 {
     flex: 0 0 33.33333%;
