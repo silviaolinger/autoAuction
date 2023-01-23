@@ -91,34 +91,17 @@ const bidFormHandler = async (event) => {
   }
 };
 
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
-    console.log(id)
-    const response = await fetch(`/api/listings/${id}`, {
-      method: 'DELETE',
-    });
 
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to delete listing');
-    }
-  }
-};
+
+
 
 document
   .querySelector('.new-car-form')
   .addEventListener('submit', newFormHandler);
 
-  document
-  .querySelector('.image-upload')
-  .addEventListener('click', uploadFiles);
-
 document
-  .querySelector('#user-listings')
-  .addEventListener('click', delButtonHandler);
+.querySelector('.image-upload')
+.addEventListener('click', uploadFiles);
 
-// document
-//   .querySelector('.car-list')
-//   .addEventListener('click', delButtonHandler);
+
+

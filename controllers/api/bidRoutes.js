@@ -20,7 +20,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     const BidData = await Bid.destroy({
       where: {
         id: req.params.id,
-        userId: req.session.user_id,
+        user_id: req.session.user_id,
       },
     });
 
