@@ -15,12 +15,12 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-async function run() {
+async function sendemail(email) {
   const mailSent = await transporter.sendMail({
     text: "Text E-mail",
     subject: "Subjetc e-mail",
     from: ["Seller1 <seller1@gmail.com", ],
-    to: ["Buyer1autoauction@gmail.com", "sylvynhaarc@hotmail.com"],
+    to: [email, "sylvynhaarc@hotmail.com"],
     html: `
     <html>
     <body>
@@ -33,4 +33,11 @@ async function run() {
   console.log(mailSent);
 }
 
-run();
+//run();
+
+
+const testFunction = () => {
+  console.log('this is a test')
+}
+
+module.exports = sendemail;
