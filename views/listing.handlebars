@@ -1,0 +1,56 @@
+<div class="text-center">
+  <h2>{{name}} {{make}}</h2>
+  <!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  {{#each photoUrl}}
+  <div class="mySlides fade">
+    <div class="numbertext"></div>
+    <img src={{this}} style="width:100%">
+    <div class="text">{{details}}</div>
+  </div>
+  {{/each}}
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+<!-- The dots/circles -->
+<div style="text-align:center">
+  {{#each photoUrl}}
+  <span class="dot" onclick="currentSlide({{@index}})"></span> 
+  {{/each}}
+</div>
+
+  <p>Year: {{year}}</p>
+  <p>Mileage: {{mileage}}</p>
+  <p>Condition: {{condition}}</p>
+  
+  <div>
+    <p>Price <span for="img" aria-label="money">💲</span><p id="price">{{current_price startBidAmount Bids}}</p></p>
+   
+  </div>
+  {{time_remaining endListingDate}} Remaining
+  <form class="form new-bid-form">
+    <div class="form-group">
+      <label for="new-bid">Amount:</label>
+      <input class="form-input" type="number" id="new-bid" />
+    </div>
+    <br></br>
+    <button class="btn btn-primary" type="submit">Place your bid!</button>
+  </form>
+  <br>
+  <p>Created by {{User.name}} on {{format_date startListingDate}}</p>
+   <br>
+  <button type="button" class="collapsible">
+    <h3>Previous offers</h3>
+  </button>
+  <div class="content">
+    {{#each Bids}}
+    <p>{{User.name}} ${{format_amount amount}} {{createdDate}}</p>
+    {{/each}}
+  </div>
+</div>
+<script src="/js/listing.js"></script>

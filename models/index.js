@@ -3,28 +3,32 @@ const Listing = require('./Listing');
 const Bid = require('./Bid');
 
 User.hasMany(Bid, {
-  foreignKey: 'user_id',
+  foreignKey: 'userId',
   onDelete: 'CASCADE'
 });
 
 User.hasMany(Listing, {
-  foreignKey: 'user_id',
+  foreignKey: 'userId',
   onDelete: 'CASCADE'
 });
 
 Listing.belongsTo(User, {
-  foreignKey: 'user_id',
+  foreignKey: 'userId',
+  onDelete: 'CASCADE'
+});
+
+Listing.hasMany(Bid, {
+  foreignKey: 'listingId',
   onDelete: 'CASCADE'
 });
 
 Bid.belongsTo(User, {
-  foreignKey: 'user_id',
+  foreignKey: 'userId',
   onDelete: 'CASCADE'
 });
 
-
 Bid.belongsTo(Listing, {
-  foreignKey: 'listing_id',
+  foreignKey: 'listingId',
   onDelete: 'CASCADE'
 });
 
