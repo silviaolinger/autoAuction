@@ -1,7 +1,11 @@
 const delBidHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
+        const status = event.target.getAttribute('stat');
+        if (status === 'Closed'){
+            alert('Sorry this auction is closed');
+            return;
+        };
       const id = event.target.getAttribute('data-id');
-      console.log(id)
       const response = await fetch(`/api/bids/${id}`, {
         method: 'DELETE',
       });

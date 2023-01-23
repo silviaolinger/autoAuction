@@ -76,7 +76,7 @@
               <td>${{format_amount amount}}</td>
               <td>{{format_date createdDate}}</td>
               <td>{{open_closed Listing.endListingDate }}</td>
-              <td><button class="btn btn-sm btn-danger" data-id="{{id}}">DELETE</button></td>
+              <td><button class="btn btn-sm btn-danger" stat="{{open_closed Listing.endListingDate}}" data-id="{{id}}">DELETE</button></td>
             </tr>
             <script src="./js/delBid.js"></script>
           {{/each}}
@@ -106,7 +106,7 @@
               <td>${{current_price startBidAmount Bids}}</td>
               <td>{{format_date endListingDate}}</td>
               <td>{{open_closed endListingDate }}</td>
-              <td><button class="btn btn-sm btn-danger" data-id="{{id}}">DELETE</button></td>
+              <td><button class="btn btn-sm btn-danger" stat="{{open_closed endListingDate}}" data-id="{{id}}">DELETE</button></td>
             </tr>
           {{/each}}
       </tbody>
