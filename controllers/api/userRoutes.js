@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
       res.status(200).json(userData);
 
       // sends email after successful request
-      sendemail(userData.email)
+      sendemail(userData.email, userData.name)
     });
   } catch (err) {
     res.status(400).json(err);

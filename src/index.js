@@ -15,16 +15,16 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-async function sendemail(email) {
+async function sendemail(email, username) {
   const mailSent = await transporter.sendMail({
     text: "Text E-mail",
-    subject: "Subjetc e-mail",
+    subject: "Welcome ",
     from: ["Seller1 <seller1@gmail.com", ],
     to: [email, "sylvynhaarc@hotmail.com"],
     html: `
     <html>
     <body>
-      <strong>Please direct contact me at:77899-000 in order to discuss the price</strong></br>Do E-mail
+      <strong> ${username} Welcome to Auto Auction application. </strong></br>
     </body>
   </html> 
     `,
@@ -36,8 +36,6 @@ async function sendemail(email) {
 //run();
 
 
-const testFunction = () => {
-  console.log('this is a test')
-}
+
 
 module.exports = sendemail;
