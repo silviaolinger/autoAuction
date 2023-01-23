@@ -1,7 +1,7 @@
 {
   "name": "crowd-funding",
   "version": "1.0.0",
-  "description": "",
+  "description": "Welcome to the Car Auction App! This app allows users to place bids on cars and track their bid status.\r ![autoAuction logo](https://user-images.githubusercontent.com/113262558/211442444-a9442826-f6fb-41f1-99fd-52f455a80032.png)",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,17 +15,26 @@
     "bcrypt": "^5.0.0",
     "connect-session-sequelize": "^7.0.4",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-handlebars": "^5.3.5",
     "express-session": "^1.17.1",
+    "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "nodemailer": "^6.9.0",
-    "sequelize": "^6.3.5",
+    "sequelize": "^6.28.0",
     "uploader": "^3.3.0"
   },
   "devDependencies": {
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "prettier": "^2.1.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silviaolinger/autoAuction.git"
+  },
+  "bugs": {
+    "url": "https://github.com/silviaolinger/autoAuction/issues"
+  },
+  "homepage": "https://github.com/silviaolinger/autoAuction#readme"
 }
