@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Listing extends Model { }
+class Listing extends Model {}
 
 Listing.init(
   {
@@ -11,11 +11,10 @@ Listing.init(
       primaryKey: true,
       autoIncrement: true,
     },
-
     photoUrl: {
       type: DataTypes.JSON,
       allowNull: false,
-      defaultValue: ["/assets/images/car.png"]
+      defaultValue: ['/assets/images/car.png'],
     },
     name: {
       type: DataTypes.STRING,
@@ -51,7 +50,6 @@ Listing.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-
     startBidAmount: {
       type: DataTypes.DECIMAL(15, 2),
       allowNull: true,
@@ -64,8 +62,6 @@ Listing.init(
       },
     },
   },
-
-
   {
     sequelize,
     timestamps: false,

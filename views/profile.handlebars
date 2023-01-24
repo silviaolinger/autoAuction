@@ -3,6 +3,7 @@
     <h2>Welcome, {{name}}!</h2>
   </div>
   <div class="profile-section">
+    {{!-- profile info --}}
     <h3>Your Information:</h3>
     <p>Email: {{email}}</p>
     <p>Phone: {{phone}}</p>
@@ -10,11 +11,10 @@
 </div>
 <div class="row mt-4">
   <div class="col-md-4">
+    {{!-- create a listing form --}}
     <h3>Create a Listing:</h3>
-    
     <div class="container" id="btn-container">
-
-      <button class="btn image-upload" id="upload" type="click" >Upload Image</button>
+      <button class="btn image-upload" id="upload" type="click">Upload Image</button>
     </div>
     <form class="form new-car-form">
       <div class="form-group">
@@ -50,73 +50,77 @@
         <input class="form-input" id="car-auction-end-date" name="car-auction-end-date" />
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary" >Create Listing</button>
+        <button type="submit" class="btn btn-primary">Create Listing</button>
       </div>
     </form>
   </div>
-<div>
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Your Bids:</h3>
-    {{#if Bids}}
-    <table class="table table-striped">
-      <thead>
-        <tr>
-            <th>Car</th>
-            <th>Bid Amount</th>
-            <th>Date</th>
-            <th>Status</th>
-        </tr>
-      </thead>
-      <tbody id="user-bids">
-        {{#each Bids}}
+  <div>
+    <div class="row mt-4">
+      <div class="col-md-6">
+        {{!-- user bids --}}
+        <h3>Your Bids:</h3>
+        {{#if Bids}}
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Car</th>
+              <th>Bid Amount</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="user-bids">
+            {{#each Bids}}
             <tr>
               <td>{{Listing.make}} {{Listing.name}}</td>
               <td>${{format_amount amount}}</td>
               <td>{{format_date createdDate}}</td>
               <td>{{open_closed Listing.endListingDate }}</td>
-              <td><button class="btn btn-sm btn-danger" stat="{{open_closed Listing.endListingDate}}" data-id="{{id}}">DELETE</button></td>
+              <td><button class="btn btn-sm btn-danger" stat="{{open_closed Listing.endListingDate}}"
+                  data-id="{{id}}">DELETE</button></td>
             </tr>
             <script src="./js/delBid.js"></script>
-          {{/each}}
-      </tbody>
-    </table>
-    {{else}}
-    <p>You have not placed any bids yet.</p>
-    {{/if}}
-  </div>
-  <div class="col-md-6">
-    <h3>Your Listings:</h3>
-    {{#if Listings}}
-    <table class="table table-striped">
-      <thead>
-        <tr>
-            <th>Car</th>
-            <th>Bid Amount</th>
-            <th>End Date</th>
-            <th>Status</th>
-            <th>Remove</th>
-        </tr>
-      </thead>
-      <tbody id="user-listings">
-        {{#each Listings}}
+            {{/each}}
+          </tbody>
+        </table>
+        {{else}}
+        <p>You have not placed any bids yet.</p>
+        {{/if}}
+      </div>
+      <div class="col-md-6">
+        {{!-- user listings --}}
+        <h3>Your Listings:</h3>
+        {{#if Listings}}
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Car</th>
+              <th>Bid Amount</th>
+              <th>End Date</th>
+              <th>Status</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody id="user-listings">
+            {{#each Listings}}
             <tr>
               <td>{{make}} {{name}}</td>
               <td>${{current_price startBidAmount Bids}}</td>
               <td>{{format_date endListingDate}}</td>
               <td>{{open_closed endListingDate }}</td>
-              <td><button class="btn btn-sm btn-danger" stat="{{open_closed endListingDate}}" data-id="{{id}}">DELETE</button></td>
+              <td><button class="btn btn-sm btn-danger" stat="{{open_closed endListingDate}}"
+                  data-id="{{id}}">DELETE</button></td>
             </tr>
-          {{/each}}
-      </tbody>
-    </table>
-    <script src="./js/delListing.js"></script>
-    {{else}}
-    <p>You have not made any Listings yet.</p>
-    {{/if}}
-  </div>
-</div>
+            {{/each}}
+          </tbody>
+        </table>
+        <script src="./js/delListing.js"></script>
+        {{else}}
+        <p>You have not made any Listings yet.</p>
+        {{/if}}
+      </div>
+    </div>
 
 
-<script src="https://js.upload.io/uploader/v3"></script>
-<script src="./js/profile.js"></script>
+    <script src="https://js.upload.io/uploader/v3"></script>
+    <script src="./js/profile.js"></script>

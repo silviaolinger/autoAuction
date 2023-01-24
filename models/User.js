@@ -28,11 +28,6 @@ User.init(
         isEmail: true,
       },
     },
-    address: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      trim: true,
-    },  
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -46,7 +41,6 @@ User.init(
       trim: true,
     },
   },
-   
   {
     hooks: {
       beforeCreate: async (newUserData) => {
@@ -54,7 +48,10 @@ User.init(
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        updatedUserData.password = await bcrypt.hash(
+          updatedUserData.password,
+          10
+        );
         return updatedUserData;
       },
     },

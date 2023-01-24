@@ -4,28 +4,26 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all listings 
+    // Get all listings
     const listingData = await Listing.findAll({
-     include: [
+      include: [
         {
           model: Bid,
-          attributes: ['amount']
-      }
-     ]
+          attributes: ['amount'],
+        },
+      ],
     });
-
     // Serialize data so the template can read it
     const listings = listingData.map((listing) => listing.get({ plain: true }));
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      listings, 
-      logged_in: req.session.logged_in 
+    res.render('homepage', {
+      listings,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
@@ -34,32 +32,37 @@ router.get('/profile', withAuth, async (req, res) => {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [
-        { model: Bid ,
+        {
+          model: Bid,
           include: [
-          {
-            model: Listing,
-            attributes: ['name', 'make', 'endListingDate']
-          }
-        ]},
-        { model: Listing,
-          attributes: ['name', 'make', 'startBidAmount','endListingDate', 'id'],
+            {
+              model: Listing,
+              attributes: ['name', 'make', 'endListingDate'],
+            },
+          ],
+        },
+        {
+          model: Listing,
+          attributes: [
+            'name',
+            'make',
+            'startBidAmount',
+            'endListingDate',
+            'id',
+          ],
           include: [
             {
               model: Bid,
-              attributes: ['amount']
-            }
-        ]}
+              attributes: ['amount'],
+            },
+          ],
+        },
       ],
-      
     });
-    
-
     const user = userData.get({ plain: true });
-    
-   console.log(userData)
     res.render('profile', {
       ...user,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -72,12 +75,11 @@ router.get('/login', (req, res) => {
     res.redirect('/profile');
     return;
   }
-
   res.render('login');
 });
-
+// direct to about page
 router.get('/about', (req, res) => {
-    res.render('about');
-  });
+  res.render('about');
+});
 
 module.exports = router;

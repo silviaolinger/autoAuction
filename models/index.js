@@ -4,32 +4,32 @@ const Bid = require('./Bid');
 
 User.hasMany(Bid, {
   foreignKey: 'userId',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 User.hasMany(Listing, {
   foreignKey: 'userId',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 Listing.belongsTo(User, {
   foreignKey: 'userId',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 Listing.hasMany(Bid, {
   foreignKey: 'listingId',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 Bid.belongsTo(User, {
   foreignKey: 'userId',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 Bid.belongsTo(Listing, {
   foreignKey: 'listingId',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 module.exports = { User, Listing, Bid };
