@@ -14,49 +14,48 @@
     <h1>
       Auto Auction
     </h1>
-    
+
     {{!-- side navigation --}}
     <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="/about">About</a>
-        <a href="/">Auction Gallery</a>
-        {{#unless logged_in}}
-        <a href="/login">Login</a>
-        {{/unless}}
-        <!-- Only display the logout button if the user is logged in -->
-        {{#if logged_in}}
-        <nav>
-          <a href="/profile">My Profile</a>
-          <a class="btn" id="logout">logout</a>
-        </nav>
-        {{/if}}
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="/about">About</a>
+      <a href="/">Auction Gallery</a>
+      {{#unless logged_in}}
+      <a href="/login">Login</a>
+      {{/unless}}
+      <!-- Only display the logout button if the user is logged in -->
+      {{#if logged_in}}
+      <nav>
+        <a href="/profile">My Profile</a>
+        <a class="btn" id="logout">logout</a>
+      </nav>
+      {{/if}}
     </div>
   </header>
   <div>
-      <div class="row" id="action-bar">
-        <div class="col-8">
-            <span class="menu-button" onclick="openNav()"> &#9776; </span>
-        </div>
-        <div class="col-4">
-            <form class="search-form" action="submit">
-                <input class="search-box" type="text" placeholder="Search by make">
-                <input type="submit" value="Search" id="search-submit">
-            </form>
-        </div>
+    <div class="row" id="action-bar">
+      <div class="col-8">
+        <span class="menu-button" onclick="openNav()"> &#9776; </span>
+      </div>
+      <div class="col-4">
+        <form class="search-form" action="submit">
+          <input class="search-box" type="text" placeholder="Search by make">
+          <input type="submit" value="Search" id="search-submit">
+        </form>
+      </div>
     </div>
-  <main class="container container-fluid mt-5">
-    {{{ body }}}
-  </main>
-  <footer>
-      
-  </footer>
+    <main class="container container-fluid mt-5">
+      {{{ body }}}
+    </main>
+    <footer>
 
-  <!-- Only include the logout script if the user is logged in -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-  <script src="/js/sidenav.js"></script>
-  <script src="/js/searchListings.js"></script>
+    </footer>
+    <!-- Only include the logout script if the user is logged in -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+    <script src="/js/sidenav.js"></script>
+    <script src="/js/searchListings.js"></script>
 </body>
 
 </html>

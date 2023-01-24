@@ -22,6 +22,7 @@ const loginFormHandler = async (event) => {
   }
 };
 
+// signup form hander
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
@@ -29,9 +30,8 @@ const signupFormHandler = async (event) => {
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
   const phone = document.querySelector('#number-signup').value.trim();
-  
-  
-  if (name && email && password && phone ) {
+
+  if (name && email && password && phone) {
     const response = await fetch('/api/users', {
       method: 'POST',
       body: JSON.stringify({ name, email, password, phone }),
@@ -39,9 +39,9 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-     document.location.replace('/profile');
-   } else {
-     alert(response.statusText);
+      document.location.replace('/profile');
+    } else {
+      alert(response.statusText);
     }
   }
 };

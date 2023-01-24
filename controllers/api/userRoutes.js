@@ -2,60 +2,52 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const { user } = require('../../src/config/smtp');
 //const {sendEmail} = require ('../../src/index.js')
-const sendemail = require ('../../src/index.js');
+const sendemail = require('../../src/index.js');
+
+// Create new User
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
-
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-
       res.status(200).json(userData);
-
       // sends email after successful request
-      sendemail(userData.email, userData.name)
+      sendemail(userData.email, userData.name);
     });
   } catch (err) {
     res.status(400).json(err);
   }
-  
 });
 
-
-
+// Login route
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
-
     if (!userData) {
       res
         .status(400)
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
-
     const validPassword = await userData.checkPassword(req.body.password);
-
     if (!validPassword) {
       res
         .status(400)
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
-
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
       res.json({ user: userData, message: 'You are now logged in!' });
     });
-
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
+// logout route
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
