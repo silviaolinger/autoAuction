@@ -16,11 +16,13 @@ for (j = 0; j < coll.length; j++) {
 const newBidFormHandler = async (event) => {
   event.preventDefault();
   const amount = parseInt(document.querySelector('#new-bid').value.trim());
-  const price = parseInt(document.querySelector('#price').textContent);
+  const textPrice = document.querySelector('#price').textContent;
+  const price = parseFloat(textPrice.replace(/,/g, ""))
   const path = window.location.pathname;
   const listingId = parseInt(path.substring(path.lastIndexOf('/') + 1));
   // logic to prevent placing bid lower than current price
   if (amount > price) {
+    console.log(amount)
     const response = await fetch('/api/bids', {
       method: 'POST',
       body: JSON.stringify({ amount, listingId }),
