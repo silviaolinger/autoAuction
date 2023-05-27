@@ -2,7 +2,7 @@
   <div class="col-auto">
     <h2>Welcome, {{name}}!</h2>
   </div>
-  <div class="profile-section">
+  <div class="profile-section col-auto">
     {{!-- profile info --}}
     <h3>Your Information:</h3>
     <p>Email: {{email}}</p>
@@ -12,83 +12,86 @@
 <div class="row mt-4">
   <div class="col-md-4">
     {{!-- create a listing form --}}
-    <h3>Create a Listing:</h3>
-    <div class="container" id="btn-container">
-      <button class="btn image-upload" id="upload" type="click">Upload Image</button>
+    <div class="new-listing-box">
+      <h3>Create a Listing:</h3>
+      <div class="container" id="btn-container">
+        <button class="btn image-upload" id="upload" type="click">Upload Image</button>
+      </div>
+      <form class="form new-car-form">
+        <div class="form-group">
+          <label for="car-name">Car name:</label>
+          <input class="form-input" type="text" id="car-name" name="car-name" />
+        </div>
+        <div class="form-group">
+          <label for="car-name">Make:</label>
+          <input class="form-input" type="text" id="car-make" name="car-make" />
+        </div>
+        <div class="form-group">
+          <label for="car-name">Year:</label>
+          <input class="form-input" type="number" id="car-year" name="car-year" />
+        </div>
+        <div class="form-group">
+          <label for="car-starting-price">Starting Price ($):</label>
+          <input class="form-input" type="number" id="car-starting-price" name="car-starting-price" />
+        </div>
+        <div class="form-group">
+          <label for="car-mileage">Mileage:</label>
+          <input class="form-input" type="number" id="car-mileage" name="car-mileage" />
+        </div>
+        <div class="form-group">
+          <label for="car-condition">Condition:</label>
+          <input class="form-input" id="car-condition" name="car-condition" />
+        </div>
+        <div class="form-group">
+          <label for="car-details">Description:</label>
+          <textarea class="form-input" id="car-details" name="car-details"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="car-auction-end-date">Auction End Date (enter yyyy/mm/dd):</label>
+          <input class="form-input" id="car-auction-end-date" name="car-auction-end-date" />
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Create Listing</button>
+        </div>
+      </form>
     </div>
-    <form class="form new-car-form">
-      <div class="form-group">
-        <label for="car-name">Car name:</label>
-        <input class="form-input" type="text" id="car-name" name="car-name" />
-      </div>
-      <div class="form-group">
-        <label for="car-name">Make:</label>
-        <input class="form-input" type="text" id="car-make" name="car-make" />
-      </div>
-      <div class="form-group">
-        <label for="car-name">Year:</label>
-        <input class="form-input" type="number" id="car-year" name="car-year" />
-      </div>
-      <div class="form-group">
-        <label for="car-starting-price">Starting Price ($):</label>
-        <input class="form-input" type="number" id="car-starting-price" name="car-starting-price" />
-      </div>
-      <div class="form-group">
-        <label for="car-mileage">Mileage:</label>
-        <input class="form-input" type="number" id="car-mileage" name="car-mileage" />
-      </div>
-      <div class="form-group">
-        <label for="car-condition">Condition:</label>
-        <input class="form-input" id="car-condition" name="car-condition" />
-      </div>
-      <div class="form-group">
-        <label for="car-details">Description:</label>
-        <textarea class="form-input" id="car-details" name="car-details"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="car-auction-end-date">Auction End Date (enter yyyy/mm/dd):</label>
-        <input class="form-input" id="car-auction-end-date" name="car-auction-end-date" />
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create Listing</button>
-      </div>
-    </form>
   </div>
-  <div>
-    <div class="row mt-4">
-      <div class="col-md-6">
-        {{!-- user bids --}}
-        <h3>Your Bids:</h3>
-        {{#if Bids}}
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Car</th>
-              <th>Bid Amount</th>
-              <th>Date</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody id="user-bids">
-            {{#each Bids}}
-            <tr>
-              <td>{{Listing.make}} {{Listing.name}}</td>
-              <td>${{format_amount amount}}</td>
-              <td>{{format_date createdDate}}</td>
-              <td>{{open_closed Listing.endListingDate }}</td>
-              <td><button class="btn btn-sm btn-danger" stat="{{open_closed Listing.endListingDate}}"
-                  data-id="{{id}}">DELETE</button></td>
-            </tr>
-            <script src="./js/delBid.js"></script>
-            {{/each}}
-          </tbody>
-        </table>
-        {{else}}
-        <p>You have not placed any bids yet.</p>
-        {{/if}}
-      </div>
-      <div class="col-md-6">
-        {{!-- user listings --}}
+  <div class="col-md-4">
+    {{!-- user bids --}}
+    <div class="bid-wrapper">
+      <h3>Your Bids:</h3>
+      {{#if Bids}}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Car</th>
+            <th>Bid Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="user-bids">
+          {{#each Bids}}
+          <tr>
+            <td>{{Listing.make}} {{Listing.name}}</td>
+            <td>${{format_amount amount}}</td>
+            <td>{{format_date createdDate}}</td>
+            <td>{{open_closed Listing.endListingDate }}</td>
+            <td><button class="btn btn-sm btn-danger" stat="{{open_closed Listing.endListingDate}}"
+                data-id="{{id}}">DELETE</button></td>
+          </tr>
+          <script src="./js/delBid.js"></script>
+          {{/each}}
+        </tbody>
+      </table>
+      {{else}}
+      <p>You have not placed any bids yet.</p>
+      {{/if}}
+    </div>
+  </div>
+    <div class="col-md-4">
+      {{!-- user listings --}}
+      <div class="user-listings-wrapper">
         <h3>Your Listings:</h3>
         {{#if Listings}}
         <table class="table table-striped">
@@ -118,8 +121,10 @@
         {{else}}
         <p>You have not made any Listings yet.</p>
         {{/if}}
-      </div>
+        </div>
     </div>
+</div>
+
 
 
     <script src="https://js.upload.io/uploader/v3"></script>

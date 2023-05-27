@@ -11,9 +11,27 @@
 
 <body>
   <header>
-    <h1>
-      Auto Auction
-    </h1>
+    <div class="row">
+      <div class="col-4">
+          <span class="menu-button" onclick="openNav()"> &#9776; </span>
+      </div>
+      <div class="col-4">
+        <h1>
+          Auto Auction
+        </h1>
+      </div>
+      <div class="col-4 search">
+        <form class="search-form" action="submit">
+          <input class="search-box" type="text" placeholder="Search by make">
+          <button type="submit" id="search-submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+   
 
     {{!-- side navigation --}}
     <div id="mySidenav" class="sidenav">
@@ -32,24 +50,14 @@
       {{/if}}
     </div>
   </header>
-  <div>
-    <div class="row" id="action-bar">
-      <div class="col-8">
-        <span class="menu-button" onclick="openNav()"> &#9776; </span>
-      </div>
-      <div class="col-4">
-        <form class="search-form" action="submit">
-          <input class="search-box" type="text" placeholder="Search by make">
-          <input type="submit" value="Search" id="search-submit">
-        </form>
-      </div>
+  <div class="bg">
+    <div class="blur">
+      <main class="container">
+        {{{ body }}}
+      </main>
     </div>
-    <main class="container container-fluid mt-5">
-      {{{ body }}}
-    </main>
-    <footer>
-
-    </footer>
+  </div>
+  
     <!-- Only include the logout script if the user is logged in -->
     {{#if logged_in}}
     <script src="/js/logout.js"></script>

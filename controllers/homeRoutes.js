@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Bid, Listing, User } = require('../models');
 const withAuth = require('../utils/auth');
+const filterListingsByEndDate = require('../utils/filterListings')
 
 router.get('/', async (req, res) => {
   try {
@@ -14,8 +15,10 @@ router.get('/', async (req, res) => {
       ],
     });
     // Serialize data so the template can read it
-    const listings = listingData.map((listing) => listing.get({ plain: true }));
+    const unfilteredListings = listingData.map((listing) => listing.get({ plain: true }));
     // Pass serialized data and session flag into template
+    let listings = filterListingsByEndDate(unfilteredListings);
+    console.log(listings)
     res.render('homepage', {
       listings,
       logged_in: req.session.logged_in,
